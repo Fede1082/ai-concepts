@@ -1,0 +1,31 @@
+Contratto di servizi IT
+
+CTR-01 — Oggetto
+La società Alfa affida a Beta la manutenzione applicativa del portale clienti e il monitoraggio dei servizi.
+
+CTR-02 — Durata
+Il contratto decorre dal 1 gennaio 2027 e termina il 31 dicembre 2027.
+
+CTR-03 — Rinnovo
+Il rinnovo non è automatico e richiede un accordo scritto almeno 30 giorni prima della scadenza.
+
+CTR-04 — Corrispettivo
+Il canone mensile è di 2.400 euro oltre IVA, fatturato alla fine di ogni mese.
+
+CTR-05 — Pagamento
+Le fatture devono essere pagate entro 30 giorni dalla data di emissione tramite bonifico.
+
+CTR-06 — Disponibilità
+Beta garantisce un livello di disponibilità mensile del portale pari al 99,5%, escluse le manutenzioni programmate.
+
+CTR-07 — Manutenzione
+Le manutenzioni programmate devono essere comunicate almeno 72 ore prima dell'intervento.
+
+CTR-08 — Incidenti
+Per incidenti critici, Beta deve avviare la presa in carico entro 60 minuti dalla segnalazione.
+
+CTR-09 — Riservatezza
+Le informazioni riservate non possono essere divulgate a terzi senza autorizzazione scritta.
+
+CTR-10 — Recesso
+Ciascuna parte può recedere con preavviso scritto di 60 giorni.
