@@ -1,0 +1,272 @@
+[
+  {
+    "id": "Q01",
+    "question": "Quali servizi sono oggetto del contratto?",
+    "expected_answer": "Manutenzione del portale clienti e monitoraggio dei servizi.",
+    "relevant_section_ids": [
+      "CTR-01"
+    ],
+    "document": "contratto_servizi.pdf"
+  },
+  {
+    "id": "Q02",
+    "question": "Quando termina il contratto?",
+    "expected_answer": "31 dicembre 2027.",
+    "relevant_section_ids": [
+      "CTR-02"
+    ],
+    "document": "contratto_servizi.pdf"
+  },
+  {
+    "id": "Q03",
+    "question": "Il rinnovo è automatico?",
+    "expected_answer": "No, richiede un accordo scritto almeno 30 giorni prima della scadenza.",
+    "relevant_section_ids": [
+      "CTR-03"
+    ],
+    "document": "contratto_servizi.pdf"
+  },
+  {
+    "id": "Q04",
+    "question": "Qual è il canone mensile?",
+    "expected_answer": "2.400 euro oltre IVA.",
+    "relevant_section_ids": [
+      "CTR-04"
+    ],
+    "document": "contratto_servizi.pdf"
+  },
+  {
+    "id": "Q05",
+    "question": "Entro quanto vanno pagate le fatture?",
+    "expected_answer": "Entro 30 giorni dall'emissione.",
+    "relevant_section_ids": [
+      "CTR-05"
+    ],
+    "document": "contratto_servizi.pdf"
+  },
+  {
+    "id": "Q06",
+    "question": "Quale disponibilità mensile è garantita?",
+    "expected_answer": "99,5%, escluse manutenzioni programmate.",
+    "relevant_section_ids": [
+      "CTR-06"
+    ],
+    "document": "contratto_servizi.pdf"
+  },
+  {
+    "id": "Q07",
+    "question": "Con quanto anticipo vanno annunciate le manutenzioni?",
+    "expected_answer": "Almeno 72 ore.",
+    "relevant_section_ids": [
+      "CTR-07"
+    ],
+    "document": "contratto_servizi.pdf"
+  },
+  {
+    "id": "Q08",
+    "question": "Entro quanto tempo viene preso in carico un incidente critico?",
+    "expected_answer": "Entro 60 minuti.",
+    "relevant_section_ids": [
+      "CTR-08"
+    ],
+    "document": "contratto_servizi.pdf"
+  },
+  {
+    "id": "Q09",
+    "question": "Si possono divulgare informazioni riservate a terzi?",
+    "expected_answer": "Solo con autorizzazione scritta.",
+    "relevant_section_ids": [
+      "CTR-09"
+    ],
+    "document": "contratto_servizi.pdf"
+  },
+  {
+    "id": "Q10",
+    "question": "Qual è il preavviso per recedere?",
+    "expected_answer": "60 giorni per iscritto.",
+    "relevant_section_ids": [
+      "CTR-10"
+    ],
+    "document": "contratto_servizi.pdf"
+  },
+  {
+    "id": "Q11",
+    "question": "Quali sono i requisiti minimi di Python e RAM?",
+    "expected_answer": "Python 3.11 o successivo e 4 GB RAM.",
+    "relevant_section_ids": [
+      "TEC-01"
+    ],
+    "document": "manuale_tecnico.pdf"
+  },
+  {
+    "id": "Q12",
+    "question": "Quale comando installa le dipendenze?",
+    "expected_answer": "pip install -r requirements.txt.",
+    "relevant_section_ids": [
+      "TEC-02"
+    ],
+    "document": "manuale_tecnico.pdf"
+  },
+  {
+    "id": "Q13",
+    "question": "Quale variabile contiene la connessione a PostgreSQL?",
+    "expected_answer": "DATABASE_URL.",
+    "relevant_section_ids": [
+      "TEC-03"
+    ],
+    "document": "manuale_tecnico.pdf"
+  },
+  {
+    "id": "Q14",
+    "question": "Con quale comando si avvia l'API?",
+    "expected_answer": "uvicorn app.main:app --host 0.0.0.0 --port 8000.",
+    "relevant_section_ids": [
+      "TEC-04"
+    ],
+    "document": "manuale_tecnico.pdf"
+  },
+  {
+    "id": "Q15",
+    "question": "Quale endpoint verifica lo stato del servizio?",
+    "expected_answer": "GET /health; HTTP 200 se operativo.",
+    "relevant_section_ids": [
+      "TEC-05"
+    ],
+    "document": "manuale_tecnico.pdf"
+  },
+  {
+    "id": "Q16",
+    "question": "Come si autenticano le chiamate agli endpoint protetti?",
+    "expected_answer": "Con un token Bearer nell'header Authorization.",
+    "relevant_section_ids": [
+      "TEC-06"
+    ],
+    "document": "manuale_tecnico.pdf"
+  },
+  {
+    "id": "Q17",
+    "question": "Qual è il limite dei PDF caricabili?",
+    "expected_answer": "20 MB tramite POST /documents.",
+    "relevant_section_ids": [
+      "TEC-07"
+    ],
+    "document": "manuale_tecnico.pdf"
+  },
+  {
+    "id": "Q18",
+    "question": "L'indicizzazione dei documenti è sincrona?",
+    "expected_answer": "No, è asincrona tramite coda.",
+    "relevant_section_ids": [
+      "TEC-08"
+    ],
+    "document": "manuale_tecnico.pdf"
+  },
+  {
+    "id": "Q19",
+    "question": "Qual è il valore predefinito di top_k?",
+    "expected_answer": "5 nell'endpoint POST /search.",
+    "relevant_section_ids": [
+      "TEC-09"
+    ],
+    "document": "manuale_tecnico.pdf"
+  },
+  {
+    "id": "Q20",
+    "question": "Per quanto tempo vengono conservati i log?",
+    "expected_answer": "14 giorni.",
+    "relevant_section_ids": [
+      "TEC-10"
+    ],
+    "document": "manuale_tecnico.pdf"
+  },
+  {
+    "id": "Q21",
+    "question": "Quando iniziò il progetto Aurora?",
+    "expected_answer": "Il 3 marzo.",
+    "relevant_section_ids": [
+      "NAR-01"
+    ],
+    "document": "racconto_progetto.pdf"
+  },
+  {
+    "id": "Q22",
+    "question": "Qual era l'obiettivo del progetto?",
+    "expected_answer": "Digitalizzare l'archivio fotografico storico del quartiere.",
+    "relevant_section_ids": [
+      "NAR-02"
+    ],
+    "document": "racconto_progetto.pdf"
+  },
+  {
+    "id": "Q23",
+    "question": "Chi partecipava al progetto Aurora?",
+    "expected_answer": "Giulia, Marco, Sara e Lorenzo.",
+    "relevant_section_ids": [
+      "NAR-03"
+    ],
+    "document": "racconto_progetto.pdf"
+  },
+  {
+    "id": "Q24",
+    "question": "Quale fu il primo ostacolo?",
+    "expected_answer": "Fotografie senza data e descrizione.",
+    "relevant_section_ids": [
+      "NAR-04"
+    ],
+    "document": "racconto_progetto.pdf"
+  },
+  {
+    "id": "Q25",
+    "question": "Come pensavano di identificare persone e luoghi nelle foto?",
+    "expected_answer": "Intervistando gli abitanti più anziani.",
+    "relevant_section_ids": [
+      "NAR-05"
+    ],
+    "document": "racconto_progetto.pdf"
+  },
+  {
+    "id": "Q26",
+    "question": "Quale attrezzatura acquistò Marco?",
+    "expected_answer": "Uno scanner piano.",
+    "relevant_section_ids": [
+      "NAR-06"
+    ],
+    "document": "racconto_progetto.pdf"
+  },
+  {
+    "id": "Q27",
+    "question": "Quante fotografie erano state digitalizzate entro il 15 aprile?",
+    "expected_answer": "320.",
+    "relevant_section_ids": [
+      "NAR-07"
+    ],
+    "document": "racconto_progetto.pdf"
+  },
+  {
+    "id": "Q28",
+    "question": "Quante immagini furono archiviate nella cartella sbagliata?",
+    "expected_answer": "18.",
+    "relevant_section_ids": [
+      "NAR-08"
+    ],
+    "document": "racconto_progetto.pdf"
+  },
+  {
+    "id": "Q29",
+    "question": "Quando e dove si tenne la prima mostra digitale?",
+    "expected_answer": "Il 20 maggio nella sala civica.",
+    "relevant_section_ids": [
+      "NAR-09"
+    ],
+    "document": "racconto_progetto.pdf"
+  },
+  {
+    "id": "Q30",
+    "question": "Quante fotografie comprendeva l'archivio finale?",
+    "expected_answer": "870 consultabili online.",
+    "relevant_section_ids": [
+      "NAR-10"
+    ],
+    "document": "racconto_progetto.pdf"
+  }
+]

@@ -1,0 +1,31 @@
+﻿id,question,expected_answer,relevant_section_ids,document
+Q01,Quali servizi sono oggetto del contratto?,Manutenzione del portale clienti e monitoraggio dei servizi.,CTR-01,contratto_servizi.pdf
+Q02,Quando termina il contratto?,31 dicembre 2027.,CTR-02,contratto_servizi.pdf
+Q03,Il rinnovo è automatico?,"No, richiede un accordo scritto almeno 30 giorni prima della scadenza.",CTR-03,contratto_servizi.pdf
+Q04,Qual è il canone mensile?,2.400 euro oltre IVA.,CTR-04,contratto_servizi.pdf
+Q05,Entro quanto vanno pagate le fatture?,Entro 30 giorni dall'emissione.,CTR-05,contratto_servizi.pdf
+Q06,Quale disponibilità mensile è garantita?,"99,5%, escluse manutenzioni programmate.",CTR-06,contratto_servizi.pdf
+Q07,Con quanto anticipo vanno annunciate le manutenzioni?,Almeno 72 ore.,CTR-07,contratto_servizi.pdf
+Q08,Entro quanto tempo viene preso in carico un incidente critico?,Entro 60 minuti.,CTR-08,contratto_servizi.pdf
+Q09,Si possono divulgare informazioni riservate a terzi?,Solo con autorizzazione scritta.,CTR-09,contratto_servizi.pdf
+Q10,Qual è il preavviso per recedere?,60 giorni per iscritto.,CTR-10,contratto_servizi.pdf
+Q11,Quali sono i requisiti minimi di Python e RAM?,Python 3.11 o successivo e 4 GB RAM.,TEC-01,manuale_tecnico.pdf
+Q12,Quale comando installa le dipendenze?,pip install -r requirements.txt.,TEC-02,manuale_tecnico.pdf
+Q13,Quale variabile contiene la connessione a PostgreSQL?,DATABASE_URL.,TEC-03,manuale_tecnico.pdf
+Q14,Con quale comando si avvia l'API?,uvicorn app.main:app --host 0.0.0.0 --port 8000.,TEC-04,manuale_tecnico.pdf
+Q15,Quale endpoint verifica lo stato del servizio?,GET /health; HTTP 200 se operativo.,TEC-05,manuale_tecnico.pdf
+Q16,Come si autenticano le chiamate agli endpoint protetti?,Con un token Bearer nell'header Authorization.,TEC-06,manuale_tecnico.pdf
+Q17,Qual è il limite dei PDF caricabili?,20 MB tramite POST /documents.,TEC-07,manuale_tecnico.pdf
+Q18,L'indicizzazione dei documenti è sincrona?,"No, è asincrona tramite coda.",TEC-08,manuale_tecnico.pdf
+Q19,Qual è il valore predefinito di top_k?,5 nell'endpoint POST /search.,TEC-09,manuale_tecnico.pdf
+Q20,Per quanto tempo vengono conservati i log?,14 giorni.,TEC-10,manuale_tecnico.pdf
+Q21,Quando iniziò il progetto Aurora?,Il 3 marzo.,NAR-01,racconto_progetto.pdf
+Q22,Qual era l'obiettivo del progetto?,Digitalizzare l'archivio fotografico storico del quartiere.,NAR-02,racconto_progetto.pdf
+Q23,Chi partecipava al progetto Aurora?,"Giulia, Marco, Sara e Lorenzo.",NAR-03,racconto_progetto.pdf
+Q24,Quale fu il primo ostacolo?,Fotografie senza data e descrizione.,NAR-04,racconto_progetto.pdf
+Q25,Come pensavano di identificare persone e luoghi nelle foto?,Intervistando gli abitanti più anziani.,NAR-05,racconto_progetto.pdf
+Q26,Quale attrezzatura acquistò Marco?,Uno scanner piano.,NAR-06,racconto_progetto.pdf
+Q27,Quante fotografie erano state digitalizzate entro il 15 aprile?,320.,NAR-07,racconto_progetto.pdf
+Q28,Quante immagini furono archiviate nella cartella sbagliata?,18.,NAR-08,racconto_progetto.pdf
+Q29,Quando e dove si tenne la prima mostra digitale?,Il 20 maggio nella sala civica.,NAR-09,racconto_progetto.pdf
+Q30,Quante fotografie comprendeva l'archivio finale?,870 consultabili online.,NAR-10,racconto_progetto.pdf

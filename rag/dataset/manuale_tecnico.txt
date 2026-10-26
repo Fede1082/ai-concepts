@@ -1,0 +1,31 @@
+Manuale tecnico della piattaforma Atlas
+
+TEC-01 — Requisiti
+Atlas richiede Python 3.11 o successivo e almeno 4 GB di memoria RAM.
+
+TEC-02 — Installazione
+Per installare le dipendenze eseguire pip install -r requirements.txt dalla cartella del progetto.
+
+TEC-03 — Configurazione
+La variabile DATABASE_URL contiene la stringa di connessione a PostgreSQL.
+
+TEC-04 — Avvio
+Il servizio API si avvia con uvicorn app.main:app --host 0.0.0.0 --port 8000.
+
+TEC-05 — Health check
+L'endpoint GET /health restituisce lo stato del servizio e il codice HTTP 200 quando è operativo.
+
+TEC-06 — Autenticazione
+Le richieste agli endpoint protetti richiedono un token Bearer nell'header Authorization.
+
+TEC-07 — Caricamento
+L'endpoint POST /documents accetta file PDF fino a 20 MB.
+
+TEC-08 — Indicizzazione
+L'indicizzazione dei nuovi documenti avviene in modo asincrono tramite una coda di elaborazione.
+
+TEC-09 — Ricerca
+L'endpoint POST /search accetta una query testuale e il parametro top_k, che vale 5 per impostazione predefinita.
+
+TEC-10 — Log
+I log applicativi sono salvati in formato JSON e conservati per 14 giorni.
