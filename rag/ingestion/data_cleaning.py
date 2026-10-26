@@ -64,3 +64,9 @@ def preprocess_text(text, stopwords=None, irrelevant_patterns=None):
         text = remove_irrelevant_content(text, irrelevant_patterns)
     return text
 
+def check_text_integrity(text):
+    """Check the integrity of the text by ensuring it is not empty and does not contain only whitespace."""
+    if not text or text.isspace():
+        raise ValueError("The text is empty or contains only whitespace.")
+    return True
+
