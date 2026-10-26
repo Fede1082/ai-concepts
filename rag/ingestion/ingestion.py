@@ -20,11 +20,13 @@ document_list = []
 
 # Saving the document names into a list
 for file in document_path.glob("*.pdf"):
+    counter = 0
     if file.is_file():
+        counter += 1
         reader = PdfReader(file)
         document_content = '\f'.join(page.extract_text() or '' for page in reader.pages)
         document_list.append((file.name, preprocess_text(document_content)))
-
+    
 print("Document content:" + str(document_list))
 
 ##Cleaning and preprocessing of the documents
