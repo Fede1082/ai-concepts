@@ -1,0 +1,96 @@
+{
+  "document_id": "racconto_progetto.pdf",
+  "status": "da_verificare",
+  "config": {
+    "section_patterns": [
+      "^\\s*art\\.?\\s+(?P<id>\\d+[a-z]?)\\b",
+      "^\\s*capitolo\\s+(?P<id>[ivxlcdm]+|\\d+)\\b",
+      "^\\s*(?P<id>\\d+(?:\\.\\d+)*)(?:[.)])?\\s+(?=\\w)"
+    ],
+    "expect_sections": false,
+    "negations": [
+      "non",
+      "mai",
+      "nessuno",
+      "nessuna",
+      "nessun"
+    ],
+    "allowed_boundary_patterns": [],
+    "decimal_separator": ",",
+    "thousands_separator": ".",
+    "removal_threshold": 20.0,
+    "alignment_threshold": 0.55
+  },
+  "checks": {
+    "structure": "non_applicabile",
+    "semantic_preservation": "non_dimostrata"
+  },
+  "metrics": {
+    "original_characters": 952,
+    "removed_characters": 37,
+    "removed_percent": 3.89,
+    "allowed_removed_characters": 0,
+    "allowed_removed_percent": 0.0
+  },
+  "sections": [
+    {
+      "id": null,
+      "title": null,
+      "original_span": [
+        0,
+        1112
+      ],
+      "cleaned_span": [
+        0,
+        1064
+      ],
+      "metrics": {
+        "original_characters": 952,
+        "removed_characters": 37,
+        "removed_percent": 3.89,
+        "allowed_removed_characters": 0,
+        "allowed_removed_percent": 0.0
+      }
+    }
+  ],
+  "anomalies": [
+    {
+      "type": "content_changed",
+      "section": null,
+      "severity": "media",
+      "status": "da_verificare",
+      "original": "l'archivio",
+      "cleaned": "larchivio",
+      "original_span": [
+        255,
+        265
+      ],
+      "cleaned_span": [
+        246,
+        255
+      ],
+      "original_context": "Giulia riunì il gruppo nella biblioteca comunale.\nNAR-02 — Obiettivo\nIl gruppo voleva digitalizzare l'archivio fotografico storico del quartiere.\nNAR-03 — Partecipanti\nAl progetto partecipavano Giulia, Marco, S",
+      "cleaned_context": "ndo giulia riunì il gruppo nella biblioteca comunale nar02 obiettivo il gruppo voleva digitalizzare larchivio fotografico storico del quartiere nar03 partecipanti al progetto partecipavano giulia marco sara e ",
+      "confidence": 0.881
+    },
+    {
+      "type": "content_changed",
+      "section": null,
+      "severity": "media",
+      "status": "da_verificare",
+      "original": "dell'iniziativa l'archivio",
+      "cleaned": "delliniziativa larchivio",
+      "original_span": [
+        1037,
+        1063
+      ],
+      "cleaned_span": [
+        993,
+        1017
+      ],
+      "original_context": "a prima mostra digitale fu presentata il 20 maggio nella sala civica.\nNAR-10 — Risultato\nAl termine dell'iniziativa l'archivio comprendeva 870 fotografie consultabili online.\n",
+      "cleaned_context": "co la prima mostra digitale fu presentata il 20 maggio nella sala civica nar10 risultato al termine delliniziativa larchivio comprendeva 870 fotografie consultabili online",
+      "confidence": 0.824
+    }
+  ]
+}

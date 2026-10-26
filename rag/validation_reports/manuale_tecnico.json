@@ -1,0 +1,229 @@
+{
+  "document_id": "manuale_tecnico.pdf",
+  "status": "da_verificare",
+  "config": {
+    "section_patterns": [
+      "^\\s*art\\.?\\s+(?P<id>\\d+[a-z]?)\\b",
+      "^\\s*capitolo\\s+(?P<id>[ivxlcdm]+|\\d+)\\b",
+      "^\\s*(?P<id>\\d+(?:\\.\\d+)*)(?:[.)])?\\s+(?=\\w)"
+    ],
+    "expect_sections": false,
+    "negations": [
+      "non",
+      "mai",
+      "nessuno",
+      "nessuna",
+      "nessun"
+    ],
+    "allowed_boundary_patterns": [],
+    "decimal_separator": ",",
+    "thousands_separator": ".",
+    "removal_threshold": 20.0,
+    "alignment_threshold": 0.55
+  },
+  "checks": {
+    "structure": "non_applicabile",
+    "semantic_preservation": "non_dimostrata"
+  },
+  "metrics": {
+    "original_characters": 991,
+    "removed_characters": 52,
+    "removed_percent": 5.25,
+    "allowed_removed_characters": 0,
+    "allowed_removed_percent": 0.0
+  },
+  "sections": [
+    {
+      "id": null,
+      "title": null,
+      "original_span": [
+        0,
+        1163
+      ],
+      "cleaned_span": [
+        0,
+        1100
+      ],
+      "metrics": {
+        "original_characters": 991,
+        "removed_characters": 52,
+        "removed_percent": 5.25,
+        "allowed_removed_characters": 0,
+        "allowed_removed_percent": 0.0
+      }
+    }
+  ],
+  "anomalies": [
+    {
+      "type": "content_changed",
+      "section": null,
+      "severity": "media",
+      "status": "da_verificare",
+      "original": "3.11",
+      "cleaned": "311",
+      "original_span": [
+        148,
+        152
+      ],
+      "cleaned_span": [
+        144,
+        147
+      ],
+      "original_context": "o sintetico e interamente inventato per esercitazioni RAG.\nTEC-01 — Requisiti\nAtlas richiede Python 3.11 o successivo e almeno 4 GB di memoria RAM.\nTEC-02 — Installazione\nPer installare le dipendenze eseg",
+      "cleaned_context": "mento sintetico e interamente inventato per esercitazioni rag tec01 requisiti atlas richiede python 311 o successivo e almeno 4 gb di memoria ram tec02 installazione per installare le dipendenze eseguire",
+      "confidence": 0.906
+    },
+    {
+      "type": "content_changed",
+      "section": null,
+      "severity": "media",
+      "status": "da_verificare",
+      "original": "requirements.txt",
+      "cleaned": "requirementstxt",
+      "original_span": [
+        272,
+        288
+      ],
+      "cleaned_span": [
+        262,
+        277
+      ],
+      "original_context": "no 4 GB di memoria RAM.\nTEC-02 — Installazione\nPer installare le dipendenze eseguire pip install -r requirements.txt dalla cartella del progetto.\nTEC-03 — Configurazione\nLa variabile DATABASE_URL contiene la stringa ",
+      "cleaned_context": " almeno 4 gb di memoria ram tec02 installazione per installare le dipendenze eseguire pip install r requirementstxt dalla cartella del progetto tec03 configurazione la variabile database_url contiene la stringa di c",
+      "confidence": 0.896
+    },
+    {
+      "type": "content_changed",
+      "section": null,
+      "severity": "media",
+      "status": "da_verificare",
+      "original": "app.main:app",
+      "cleaned": "appmainapp",
+      "original_span": [
+        469,
+        481
+      ],
+      "cleaned_span": [
+        450,
+        460
+      ],
+      "original_context": "ontiene la stringa di connessione a PostgreSQL.\nTEC-04 — Avvio\nIl servizio API si avvia con uvicorn app.main:app --host 0.0.0.0 --port 8000.\nTEC-05 — Health check\nL'endpoint GET /health restituisce lo stato del s",
+      "cleaned_context": "rl contiene la stringa di connessione a postgresql tec04 avvio il servizio api si avvia con uvicorn appmainapp host 0000 port 8000 tec05 health check lendpoint get health restituisce lo stato del servizio e il ",
+      "confidence": 0.784
+    },
+    {
+      "type": "content_changed",
+      "section": null,
+      "severity": "media",
+      "status": "da_verificare",
+      "original": "0.0.0.0",
+      "cleaned": "0000",
+      "original_span": [
+        489,
+        496
+      ],
+      "cleaned_span": [
+        466,
+        470
+      ],
+      "original_context": "i connessione a PostgreSQL.\nTEC-04 — Avvio\nIl servizio API si avvia con uvicorn app.main:app --host 0.0.0.0 --port 8000.\nTEC-05 — Health check\nL'endpoint GET /health restituisce lo stato del servizio e il co",
+      "cleaned_context": "tringa di connessione a postgresql tec04 avvio il servizio api si avvia con uvicorn appmainapp host 0000 port 8000 tec05 health check lendpoint get health restituisce lo stato del servizio e il codice htt",
+      "confidence": 0.795
+    },
+    {
+      "type": "content_changed",
+      "section": null,
+      "severity": "media",
+      "status": "da_verificare",
+      "original": "L'endpoint",
+      "cleaned": "lendpoint",
+      "original_span": [
+        532,
+        542
+      ],
+      "cleaned_span": [
+        500,
+        509
+      ],
+      "original_context": "Il servizio API si avvia con uvicorn app.main:app --host 0.0.0.0 --port 8000.\nTEC-05 — Health check\nL'endpoint GET /health restituisce lo stato del servizio e il codice HTTP 200 quando è operativo.\nTEC-06 — Aut",
+      "cleaned_context": " tec04 avvio il servizio api si avvia con uvicorn appmainapp host 0000 port 8000 tec05 health check lendpoint get health restituisce lo stato del servizio e il codice http 200 quando è operativo tec06 autentic",
+      "confidence": 0.816
+    },
+    {
+      "type": "content_changed",
+      "section": null,
+      "severity": "media",
+      "status": "da_verificare",
+      "original": "nell'header",
+      "cleaned": "nellheader",
+      "original_span": [
+        717,
+        728
+      ],
+      "cleaned_span": [
+        679,
+        689
+      ],
+      "original_context": "è operativo.\nTEC-06 — Autenticazione\nLe richieste agli endpoint protetti richiedono un token Bearer nell'header Authorization.\nTEC-07 — Caricamento\nL'endpoint POST /documents accetta file PDF fino a 20 MB.\nTEC-0",
+      "cleaned_context": "ndo è operativo tec06 autenticazione le richieste agli endpoint protetti richiedono un token bearer nellheader authorization tec07 caricamento lendpoint post documents accetta file pdf fino a 20 mb tec08 indici",
+      "confidence": 0.848
+    },
+    {
+      "type": "content_changed",
+      "section": null,
+      "severity": "media",
+      "status": "da_verificare",
+      "original": "L'endpoint",
+      "cleaned": "lendpoint",
+      "original_span": [
+        765,
+        775
+      ],
+      "cleaned_span": [
+        722,
+        731
+      ],
+      "original_context": "e agli endpoint protetti richiedono un token Bearer nell'header Authorization.\nTEC-07 — Caricamento\nL'endpoint POST /documents accetta file PDF fino a 20 MB.\nTEC-08 — Indicizzazione\nL'indicizzazione dei nuovi d",
+      "cleaned_context": "hieste agli endpoint protetti richiedono un token bearer nellheader authorization tec07 caricamento lendpoint post documents accetta file pdf fino a 20 mb tec08 indicizzazione lindicizzazione dei nuovi documen",
+      "confidence": 0.794
+    },
+    {
+      "type": "content_changed",
+      "section": null,
+      "severity": "media",
+      "status": "da_verificare",
+      "original": "L'indicizzazione",
+      "cleaned": "lindicizzazione",
+      "original_span": [
+        847,
+        863
+      ],
+      "cleaned_span": [
+        798,
+        813
+      ],
+      "original_context": "-07 — Caricamento\nL'endpoint POST /documents accetta file PDF fino a 20 MB.\nTEC-08 — Indicizzazione\nL'indicizzazione dei nuovi documenti avviene in modo asincrono tramite una coda di elaborazione.\nTEC-09 — Ricerca\nL'",
+      "cleaned_context": "ation tec07 caricamento lendpoint post documents accetta file pdf fino a 20 mb tec08 indicizzazione lindicizzazione dei nuovi documenti avviene in modo asincrono tramite una coda di elaborazione tec09 ricerca lendpo",
+      "confidence": 0.853
+    },
+    {
+      "type": "content_changed",
+      "section": null,
+      "severity": "media",
+      "status": "da_verificare",
+      "original": "L'endpoint",
+      "cleaned": "lendpoint",
+      "original_span": [
+        961,
+        971
+      ],
+      "cleaned_span": [
+        907,
+        916
+      ],
+      "original_context": "ne dei nuovi documenti avviene in modo asincrono tramite una coda di elaborazione.\nTEC-09 — Ricerca\nL'endpoint POST /search accetta una query testuale e il parametro top_k, che vale 5 per impostazione\npredefini",
+      "cleaned_context": "azione dei nuovi documenti avviene in modo asincrono tramite una coda di elaborazione tec09 ricerca lendpoint post search accetta una query testuale e il parametro top_k che vale 5 per impostazione predefinita",
+      "confidence": 0.899
+    }
+  ]
+}

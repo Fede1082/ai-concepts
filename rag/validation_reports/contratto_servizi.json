@@ -1,0 +1,115 @@
+{
+  "document_id": "contratto_servizi.pdf",
+  "status": "anomalie_rilevate",
+  "config": {
+    "section_patterns": [
+      "^\\s*art\\.?\\s+(?P<id>\\d+[a-z]?)\\b",
+      "^\\s*capitolo\\s+(?P<id>[ivxlcdm]+|\\d+)\\b",
+      "^\\s*(?P<id>\\d+(?:\\.\\d+)*)(?:[.)])?\\s+(?=\\w)"
+    ],
+    "expect_sections": false,
+    "negations": [
+      "non",
+      "mai",
+      "nessuno",
+      "nessuna",
+      "nessun"
+    ],
+    "allowed_boundary_patterns": [],
+    "decimal_separator": ",",
+    "thousands_separator": ".",
+    "removal_threshold": 20.0,
+    "alignment_threshold": 0.55
+  },
+  "checks": {
+    "structure": "non_applicabile",
+    "semantic_preservation": "non_dimostrata"
+  },
+  "metrics": {
+    "original_characters": 1010,
+    "removed_characters": 38,
+    "removed_percent": 3.76,
+    "allowed_removed_characters": 0,
+    "allowed_removed_percent": 0.0
+  },
+  "sections": [
+    {
+      "id": null,
+      "title": null,
+      "original_span": [
+        0,
+        1191
+      ],
+      "cleaned_span": [
+        0,
+        1142
+      ],
+      "metrics": {
+        "original_characters": 1010,
+        "removed_characters": 38,
+        "removed_percent": 3.76,
+        "allowed_removed_characters": 0,
+        "allowed_removed_percent": 0.0
+      }
+    }
+  ],
+  "anomalies": [
+    {
+      "type": "content_changed",
+      "section": null,
+      "severity": "media",
+      "status": "da_verificare",
+      "original": "2.400",
+      "cleaned": "2400",
+      "original_span": [
+        464,
+        469
+      ],
+      "cleaned_span": [
+        448,
+        452
+      ],
+      "original_context": "ccordo scritto almeno 30 giorni prima della scadenza.\nCTR-04 — Corrispettivo\nIl canone mensile è di 2.400 euro oltre IVA, fatturato alla fine di ogni mese.\nCTR-05 — Pagamento\nLe fatture devono essere pagat",
+      "cleaned_context": "un accordo scritto almeno 30 giorni prima della scadenza ctr04 corrispettivo il canone mensile è di 2400 euro oltre iva fatturato alla fine di ogni mese ctr05 pagamento le fatture devono essere pagate ent",
+      "confidence": 0.886
+    },
+    {
+      "type": "numbers_changed",
+      "section": null,
+      "severity": "alta",
+      "status": "rilevata",
+      "original": "99,5%",
+      "cleaned": "995",
+      "original_span": [
+        724,
+        729
+      ],
+      "cleaned_span": [
+        698,
+        701
+      ],
+      "original_context": "ico.\nCTR-06 — Disponibilità\nBeta garantisce un livello di disponibilità mensile del portale pari al 99,5%, escluse le manutenzioni\nprogrammate.\nCTR-07 — Manutenzione\nLe manutenzioni programmate devono esse",
+      "cleaned_context": "onifico ctr06 disponibilità beta garantisce un livello di disponibilità mensile del portale pari al 995 escluse le manutenzioni programmate ctr07 manutenzione le manutenzioni programmate devono essere co",
+      "confidence": 0.877
+    },
+    {
+      "type": "content_changed",
+      "section": null,
+      "severity": "media",
+      "status": "da_verificare",
+      "original": "dell'intervento",
+      "cleaned": "dellintervento",
+      "original_span": [
+        863,
+        878
+      ],
+      "cleaned_span": [
+        830,
+        844
+      ],
+      "original_context": "ate.\nCTR-07 — Manutenzione\nLe manutenzioni programmate devono essere comunicate almeno 72 ore prima dell'intervento.\nCTR-08 — Incidenti\nPer incidenti critici, Beta deve avviare la presa in carico entro 60 minuti dal",
+      "cleaned_context": "rammate ctr07 manutenzione le manutenzioni programmate devono essere comunicate almeno 72 ore prima dellintervento ctr08 incidenti per incidenti critici beta deve avviare la presa in carico entro 60 minuti dalla se",
+      "confidence": 0.879
+    }
+  ]
+}
