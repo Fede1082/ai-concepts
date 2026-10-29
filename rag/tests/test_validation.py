@@ -1,7 +1,7 @@
 import json
 import unittest
 
-from rag.ingestion.validation import ValidationConfig, validate_document
+from rag.src.ingestion.validation import ValidationConfig, validate_document
 
 
 class ValidationTests(unittest.TestCase):

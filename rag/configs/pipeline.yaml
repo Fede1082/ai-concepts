@@ -1,0 +1,14 @@
+ingestion:
+  input_dir: data/raw
+  formats: [pdf, txt]
+
+clean:
+  strategy: regex_based
+
+chunk:
+  max_tokens: 800
+  strategy: structural
+  input_dir: data/clean
+  output_file: data/chunks/chunks.jsonl
+  overlap_tokens: 0
+  header_pattern: '^([A-Z]{3}-\d{2}) — (.+)$'

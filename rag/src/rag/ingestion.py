@@ -11,11 +11,11 @@ import json
 from pathlib import Path
 from pypdf import PdfReader
 if __package__:
-    from .data_cleaning import preprocess_text
-    from .validation import ValidationConfig, validate_document
+    from ...ingestion_old.data_cleaning import preprocess_text
+    from ...ingestion_old.validation import ValidationConfig, validate_document
 else:
-    from data_cleaning import preprocess_text
-    from validation import ValidationConfig, validate_document
+    from rag.src.ingestion.data_cleaning import preprocess_text
+    from rag.src.ingestion.validation import ValidationConfig, validate_document
 
 ##### Injection of documents into the collection
 
@@ -46,24 +46,9 @@ for file in document_path.glob("*.pdf"):
     
 print("Document content:" + str(document_list))
 
-##Cleaning and preprocessing of the documents
-
-#Remove noise, stopwords, and irrelevant content from the documents before injection
 
 
 
-# #Chunking fixed size + overlap
-# for file in document_list:
-#     # Load the document content
-#     document_content = (document_path / file).read_text()
-
-#     # Split the document into chunks
-#     chunk_size = 10  # Adjust the chunk size as needed
-#     chunks = [document_content[i:i + chunk_size] for i in range(0, len(document_content), chunk_size)]
-
-#     # Add each chunk to the collection
-#     for chunk in chunks:
-#         add_documents_to_collection(documents=[chunk], metadatas=[], ids=[])
 
 
 
