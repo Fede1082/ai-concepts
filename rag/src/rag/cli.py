@@ -1,31 +1,35 @@
-import yaml
-# import pydantic
-
-# class ChunkingConfig(pydantic.BaseModel):
-#     input_dir: str
-#     output_file: str
-#     strategy: str
-#     max_tokens: int
-#     overlap_tokens: int
-#     header_pattern: str
-
-# with open("configs/chunking.yaml") as f:
-#     cfg = yaml.safe_load(f)
-
-# config = ChunkingConfig(**cfg)
-# print(config.max_tokens)  # 800
-
-
-# cli.py
 import typer
 from rag.config import load_config
-# from rag.chunking import structural
+from .pipeline import run_pipeline, run_clean_only
 
 app = typer.Typer()
 
+# === PHASE 1: INGESTION ===
+@app.command()
+def ingestion():
+    """Extract PDF text and clean documents."""
+    run_pipeline()
+
+@app.command()
+def clean():
+    """Test cleaning phase only (extract → clean, no downstream processing)."""
+    run_clean_only()
+
+# === PHASE 2: CHUNKING (coming soon) ===
 @app.command()
 def chunk(config: str = "configs/chunking_800.yaml"):
+    """Split cleaned documents into chunks."""
     cfg = load_config(config)
-    # structural.run(cfg.chunking.input_dir, cfg.chunking.output_file, cfg.chunking.max_tokens)
+    # from .chunking import run_chunking
+    # run_chunking(cfg)
 
-# stesso schema per: clean, index, eval
+# === PHASE 3: EMBEDDING & VECTOR DB (coming soon) ===
+# @app.command()
+# def embed(config: str = "configs/embedding.yaml"):
+#     """Embed chunks and save to vector database."""
+#     cfg = load_config(config)
+#     # from .embedding import run_embedding
+#     # run_embedding(cfg)
+
+if __name__ == "__main__":
+    app()

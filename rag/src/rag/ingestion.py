@@ -1,50 +1,46 @@
-###1 - Extraction of relevant information from the documents before injection
-### 2 - Cleaning and preprocessing of the documents before injection
-### 3 - Chunking the documents into smaller pieces before injection
-### 4 - Indexing the documents into the collection
-### 5 - Embedding the documents into the collection
-### 6- Chromadb collection injection
-###################################################
-
-
-import json
 from pathlib import Path
 from pypdf import PdfReader
-if __package__:
-    from ...ingestion_old.data_cleaning import preprocess_text
-    from ...ingestion_old.validation import ValidationConfig, validate_document
-else:
-    from rag.src.ingestion.data_cleaning import preprocess_text
-    from rag.src.ingestion.validation import ValidationConfig, validate_document
-
-##### Injection of documents into the collection
-
-#get the document content
-document_path = Path(__file__).resolve().parents[1] / "dataset"
-report_path = document_path.parent / "validation_reports"
-validation_config = ValidationConfig()
-document_list = []
 
 
-# Saving the document names into a list
-for file in document_path.glob("*.pdf"):
-    if file.is_file():
-        reader = PdfReader(file)
-        document_content = '\f'.join(page.extract_text() or '' for page in reader.pages)
-        cleaned_content = preprocess_text(document_content)
-        report = validate_document(
-            document_content, cleaned_content, validation_config, document_id=file.name
-        )
-        report_path.mkdir(parents=True, exist_ok=True)
-        report_file = report_path / f"{file.stem}.json"
-        report_file.write_text(
-            json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8"
-        )
-        print(f"Validation {file.name}: {report['status']} "
-              f"({len(report['anomalies'])} segnalazioni) — {report_file}")
-        document_list.append((file.name, cleaned_content))
-    
-print("Document content:" + str(document_list))
+def extract_pdfs(raw_dir: str | Path = None) -> dict[str, str]:
+    """
+    Estrae testo grezzo da tutti i PDF in raw_dir.
+    Ritorna dict: {pdf_name: raw_text}
+    """
+    if raw_dir is None:
+        module_dir = Path(__file__).parent.parent.parent
+        raw_dir = module_dir / "data" / "raw"
+
+    raw_path = Path(raw_dir)
+
+    if not raw_path.exists():
+        raise FileNotFoundError(f"Directory {raw_dir} non esiste")
+
+    documents = {}
+
+    for pdf_file in sorted(raw_path.glob("*.pdf")):
+        if not pdf_file.is_file():
+            continue
+
+        try:
+            reader = PdfReader(pdf_file)
+            pages_text = []
+            for page in reader.pages:
+                text = page.extract_text() or ""
+                pages_text.append(text)
+
+            raw_text = "\n".join(pages_text)
+            documents[pdf_file.name] = raw_text
+            print(f"✓ Estratto {pdf_file.name}")
+        except Exception as e:
+            print(f"✗ Errore lettura {pdf_file.name}: {e}")
+
+    return documents
+
+
+if __name__ == "__main__":
+    docs = extract_pdfs()
+    print(f"\nEstratti {len(docs)} documenti")
 
 
 
