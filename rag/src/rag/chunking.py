@@ -27,8 +27,12 @@ def load_documents(input_dir: str | Path) -> list[tuple[Path, str]]:
     ]
 
 
-def split_by_headers(text: str, header_pattern: str) -> list[tuple[int, str]]:
-    """Split text at configured CTR, NAR, and TEC structural headings."""
+def split_by_headers(text: str, header_pattern: str) -> list[tuple[int, str, str | None]]:
+    """Split text at configured CTR, NAR, and TEC structural headings.
+
+    Returns list of (start_pos, section_text, header_id).
+    header_id is the matched header (e.g., 'CTR-01') or None if no header.
+    """
     pattern = re.compile(header_pattern, re.MULTILINE)
     headings = [
         match
@@ -37,15 +41,16 @@ def split_by_headers(text: str, header_pattern: str) -> list[tuple[int, str]]:
     ]
 
     if not headings:
-        return [(0, text)] if text else []
+        return [(0, text, None)] if text else []
 
-    sections: list[tuple[int, str]] = []
+    sections: list[tuple[int, str, str | None]] = []
     if headings[0].start() > 0:
-        sections.append((0, text[:headings[0].start()]))
+        sections.append((0, text[:headings[0].start()], None))
 
     for index, heading in enumerate(headings):
         end = headings[index + 1].start() if index + 1 < len(headings) else len(text)
-        sections.append((heading.start(), text[heading.start():end]))
+        header_id = heading.group(1)  # Estrai l'ID (CTR-01, NAR-02, etc.)
+        sections.append((heading.start(), text[heading.start():end], header_id))
 
     return sections
 
@@ -111,13 +116,17 @@ def split_to_limit(text: str, max_tokens: int) -> list[str]:
 
 def build_chunks(
     documents: list[tuple[Path, str]], config: ChunkingConfig
-) -> list[dict[str, str | int]]:
-    chunks: list[dict[str, str | int]] = []
+) -> list[dict[str, str | int | None]]:
+    chunks: list[dict[str, str | int | None]] = []
 
     for path, text in documents:
         doc_name = path.stem
+        doc_title = next((line.strip() for line in text.splitlines() if line.strip()), doc_name)
+        if text.strip():
+            title_start = text.index(doc_title)
+            text = text[:title_start] + text[title_start + len(doc_title):]
         index = 0
-        for section_start, section in split_by_headers(text, config.header_pattern):
+        for section_start, section, header_id in split_by_headers(text, config.header_pattern):
             page_number = text.count("\f", 0, section_start) + 1
             pages = section.split("\f")
 
@@ -126,17 +135,20 @@ def build_chunks(
                     continue
 
                 for raw_text in split_to_limit(page_text, config.max_tokens):
-                    if not raw_text.strip():
+                    chunk_text = raw_text.strip()
+                    if not chunk_text:
                         continue
-
                     index += 1
                     chunks.append({
                         "indice": index,
+                        "doc_title": doc_title,
                         "doc_name": doc_name,
                         "doc_id": f"{doc_name}_{index}",
-                        "hash": hashlib.sha256(raw_text.encode("utf-8")).hexdigest(),
+                        "header_id": header_id,  # CTR-01, NAR-02, TEC-03, etc.
+                        "hash": hashlib.sha256(chunk_text.encode("utf-8")).hexdigest(),
                         "page": page_number + page_offset,
-                        "raw_text": raw_text,
+                        "embed_text": f"{doc_title} {chunk_text}",
+                        "raw_text": chunk_text,
                     })
 
     return chunks
