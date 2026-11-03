@@ -1,5 +1,8 @@
+from pathlib import Path
+
 import typer
 from rag.config import load_config
+from .chunking import run_chunking
 from .pipeline import run_pipeline, run_clean_only
 
 app = typer.Typer()
@@ -15,13 +18,20 @@ def clean():
     """Test cleaning phase only (extract → clean, no downstream processing)."""
     run_clean_only()
 
-# === PHASE 2: CHUNKING (coming soon) ===
+# === PHASE 2: CHUNKING ===
 @app.command()
-def chunk(config: str = "configs/chunking_800.yaml"):
+def chunk(
+    config: str = str(
+        Path(__file__).resolve().parents[2] / "configs" / "pipeline.yaml"
+    ),
+):
     """Split cleaned documents into chunks."""
     cfg = load_config(config)
-    # from .chunking import run_chunking
-    # run_chunking(cfg)
+    stats = run_chunking(cfg)
+    typer.echo(
+        f"Chunking completato: {stats['documents']} documenti, "
+        f"{stats['chunks']} chunk salvati in {stats['output_file']}"
+    )
 
 # === PHASE 3: EMBEDDING & VECTOR DB (coming soon) ===
 # @app.command()

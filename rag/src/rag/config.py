@@ -26,13 +26,14 @@ class Config(BaseModel):
     chunking: ChunkingConfig
 
 def load_config(path: str | Path) -> Config:
-    with Path(path).expanduser().open(encoding="utf-8") as f:
+    config_path = Path(path).expanduser().resolve()
+    with config_path.open(encoding="utf-8") as f:
         data = yaml.safe_load(f)
     # The pipeline YAML names this stage "chunk".
     if "chunking" not in data and "chunk" in data:
         data = {**data, "chunking": data["chunk"]}
     config = Config(**data)
-    base_dir = Path(__file__).resolve().parent
+    base_dir = config_path.parent.parent
     config.chunking.input_dir = (base_dir / config.chunking.input_dir.expanduser()).resolve()
     config.chunking.output_file = (base_dir / config.chunking.output_file.expanduser()).resolve()
     return config
