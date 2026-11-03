@@ -11,4 +11,4 @@ chunk:
   input_dir: data/clean
   output_file: data/chunks/chunks.jsonl
   overlap_tokens: 0
-  header_pattern: '^([A-Z]{3}-\d{2}) — (.+)$'
+  header_pattern: '^((?:CTR|NAR|TEC)-\d{2}) — (.+)$'
